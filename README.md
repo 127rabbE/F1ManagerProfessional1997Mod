@@ -11,6 +11,12 @@ I've also uploaded a HTML version of the change log. Simply click on it, downloa
 
 To run the game you will need dosbox-x over at https://dosbox-x.com/
 You'll need to open it and do the following once you've downloaded the games folder to play the game.
-mount d d:\F1       <- assuming you have placed the folder onto your D drive and renamed it to F1.
-D:                  <- this is the letter of the drive, so if it is not D then change it to wherever the game now exists.
+Assuming you have placed the folder onto your D drive and renamed it to F1.
+
+mount D D:\F1       
+
+D:
+
 f1
+
+Game should run.
