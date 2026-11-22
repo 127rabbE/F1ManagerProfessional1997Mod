@@ -1,0 +1,660 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>F1MP Mod Changelog</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@600;700;800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Public changelog: the three office buildings in game order (Organization, Development, Race), sub-areas inside; each entry = name, one line, Bug fix / Feature tag */
+:root{
+  --bg:#f5f5f2; --panel:#ffffff; --fg:#1b1d21; --muted:#5d636d; --line:#dcddd8;
+  --accent:#c8102e; --tag:#ecebe6;
+  --ok:#1f7a45; --ok-bg:#e3f2e8; --test:#8a5a00; --test-bg:#fbf0d6; --todo:#4a5568; --todo-bg:#e9ebef; --old:#5b4a8a; --old-bg:#ece8f6;
+  --f-display:"Saira Semi Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15171a; --panel:#1d2024; --fg:#e8e9e6; --muted:#a3a8b0; --line:#30343a;
+  --accent:#ff4d5e; --tag:#272b30;
+  --ok:#6fd49a; --ok-bg:#183424; --test:#f1c46a; --test-bg:#3a2e12; --todo:#b7c0cc; --todo-bg:#2a2f36; --old:#c3b4f0; --old-bg:#2c2640;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15171a; --panel:#1d2024; --fg:#e8e9e6; --muted:#a3a8b0; --line:#30343a;
+  --accent:#ff4d5e; --tag:#272b30;
+  --ok:#6fd49a; --ok-bg:#183424; --test:#f1c46a; --test-bg:#3a2e12; --todo:#b7c0cc; --todo-bg:#2a2f36; --old:#c3b4f0; --old-bg:#2c2640;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--f-body);margin:0}
+.wrap{max-width:860px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:40px}
+header{display:flex;flex-direction:column;gap:10px;border-top:6px solid var(--accent);padding-top:18px}
+.flag{height:10px;width:120px;background:conic-gradient(var(--fg) 25%,transparent 0 50%,var(--fg) 0 75%,transparent 0) 0 0/10px 10px;opacity:.85}
+h1{font:800 clamp(30px,6vw,44px)/1.05 var(--f-display);margin:0;letter-spacing:.01em;text-wrap:balance}
+.lede{color:var(--muted);margin:0;max-width:62ch}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+h2{font:700 26px/1.1 var(--f-display);margin:0;display:flex;align-items:baseline;gap:12px;text-transform:uppercase;letter-spacing:.04em}
+h2 .n{font:500 13px var(--f-mono);color:var(--muted);letter-spacing:0;text-transform:none}
+h3{font:700 15px/1.2 var(--f-display);text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin:8px 0 0}
+section{display:flex;flex-direction:column;gap:14px}
+ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:6px}
+li{padding:14px 16px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:start}
+li:first-child{border-top:0}
+.t{font-weight:600;min-width:0}
+.d{grid-column:1/2;color:var(--muted);margin:0;min-width:0;max-width:68ch}
+.d b{color:var(--fg);font-weight:600}
+.meta{grid-column:2;grid-row:1/3;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.b{font:500 12px var(--f-mono);background:var(--tag);padding:2px 7px;border-radius:3px;white-space:nowrap}
+.s{font:600 11px var(--f-body);text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.ok{color:var(--ok);background:var(--ok-bg)} .test{color:var(--test);background:var(--test-bg)} .todo{color:var(--todo);background:var(--todo-bg)} .old{color:var(--old);background:var(--old-bg)}
+footer{color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:560px){li{grid-template-columns:1fr}.meta{grid-column:1;grid-row:auto;flex-direction:row;align-items:center;flex-wrap:wrap}}
+
+
+:root{--bug:#b42318;--bug-bg:#fdecea;--feat:#1d5fd1;--feat-bg:#eaf1fd}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bug:#ff8a7a;--bug-bg:#3a1d1a;--feat:#7fb0ff;--feat-bg:#18243a}}
+:root[data-theme="dark"]{--bug:#ff8a7a;--bug-bg:#3a1d1a;--feat:#7fb0ff;--feat-bg:#18243a}
+.s.bug{color:var(--bug);background:var(--bug-bg)} .s.feature{color:var(--feat);background:var(--feat-bg)}
+li.bug{box-shadow:inset 3px 0 0 var(--bug)} li.feature{box-shadow:inset 3px 0 0 var(--feat)}
+.toc{display:flex;flex-wrap:wrap;gap:8px}
+.toc a{font:700 13px var(--f-display);text-transform:uppercase;letter-spacing:.06em;color:var(--fg);text-decoration:none;border:1px solid var(--line);background:var(--panel);border-radius:4px;padding:6px 12px}
+.toc a:hover{border-color:var(--accent);color:var(--accent)}
+section{scroll-margin-top:16px}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="flag" aria-hidden="true"></div>
+  <h1>F1 Manager Professional 1997 &ndash; Mod Changelog</h1>
+  <p class="lede">What the fan-made mod changes in the original game, version 0.99. Changes are grouped the way the game is: the Organization building, the Development building and the Race, with each area underneath.</p>
+  <div class="legend"><span class="s bug">Bug fix &middot; 50</span><span class="s feature">Feature &middot; 124</span></div>
+</header>
+
+<nav class="toc" aria-label="Sections"><a href="#organization">Organization</a><a href="#development">Development</a><a href="#race">Race</a><a href="#across-the-game">Across the game</a></nav>
+<section id="organization">
+  <h2>Organization <span class="n">97</span></h2>
+  <h3>Drivers</h3>
+  <ul>
+    <li class="feature"><span class="t">Real 1997 driver data</span>
+      <p class="d">Drivers have believable ages, salaries, ratings and characters for the 1997 grid.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Driver contract lengths shown wrongly</span>
+      <p class="d">Contract lengths now show what the driver file really holds.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">Drivers’ nationalities corrected</span>
+      <p class="d">Every driver was checked against real life and the wrong nationalities fixed, including a few new countries and flags.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">New nationalities with flags</span>
+      <p class="d">Poland and India join the game, each with its own waving flag in the original style.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Young drivers develop</span>
+      <p class="d">Young drivers quietly improve in some areas each year until their late twenties.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Driver ageing and retirement</span>
+      <p class="d">Drivers no longer fade or retire too young. Older drivers decide mid-season whether to call it a day, and are replaced later in the year or over the winter.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Rookie driver pool</span>
+      <p class="d">When a driver retires, real up-and-coming drivers step in instead of made-up rookies, the most talented first, each with their own photo.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Talented rookies cost more</span>
+      <p class="d">A highly rated rookie arrives on a bigger salary than an ordinary one.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Driver market value</span>
+      <p class="d">What a driver asks for now follows his talent, experience and results, and AI teams pay their drivers along the same lines.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">A minimum driver salary</span>
+      <p class="d">No driver is paid, or asks for, less than a sensible minimum.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Pay drivers</span>
+      <p class="d">Early in the season a driver with money behind him may offer himself for one of your open seats.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Driver experience over a career</span>
+      <p class="d">Experience builds steadily from races, and from the laps your drivers cover in testing.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Testing by laps driven</span>
+      <p class="d">Your drivers’ fitness, experience and motivation gains from testing depend on the laps they actually drive.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Motivation follows expectations</span>
+      <p class="d">Every driver gains or loses motivation by how he finishes compared with what his team should achieve.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">AI driver fitness</span>
+      <p class="d">AI drivers now lose fitness from racing and regain it through the season, just like yours.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Wrong driver lost fitness (original game)</span>
+      <p class="d">When one of your drivers ran out of fitness, the game could knock a different driver’s fitness down instead. Fixed.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Free agents change while unsigned</span>
+      <p class="d">Drivers without a team grow hungrier for a drive and slowly lose sharpness.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">A shared way of rating drivers</span>
+      <p class="d">AI teams judge drivers with one consistent score in every market, and will take a chance on a highly talented youngster.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">AI driver market on 1 October</span>
+      <p class="d">AI teams keep or drop drivers on sporting merit and sign the best available, with fewer unrealistic rookies.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Monthly driver market from April</span>
+      <p class="d">Signings for next season start in spring, with the strongest teams moving first and more teams joining each month.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Driver loyalty</span>
+      <p class="d">Whether an AI driver stays with his team depends on how well he did compared with what was expected.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">AI contract lengths</span>
+      <p class="d">AI teams sign drivers for one, two or three seasons, depending on age and talent.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">AI teams fire drivers</span>
+      <p class="d">At a few points in the season, a badly under-performing driver can lose his seat.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Nationality and engine links in the market</span>
+      <p class="d">AI teams favour drivers from their home country, or from their engine partner’s country.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">A team signed three drivers for two seats</span>
+      <p class="d">A team could end up with a third driver marked as signed for next season. Fixed.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">Mid-season signings caused a crash</span>
+      <p class="d">A driver brought in mid-season had no race number, which could crash the game, and was missing from the statistics. Both fixed.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Negotiations with personality</span>
+      <p class="d">Drivers and engineers bargain in character, the opening message hints at what will sign them, and a fax explains the outcome.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Bonuses count in negotiations</span>
+      <p class="d">Points and championship bonuses are now weighed sensibly in an offer, and matter more to drivers without a team.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+  </ul>
+  <h3>Engineers and staff</h3>
+  <ul>
+    <li class="feature"><span class="t">Real engineer roster</span>
+      <p class="d">The engineer file is rebuilt with real people, enough for every team plus spares.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">AI teams with empty staff posts</span>
+      <p class="d">Every AI post is filled at the start of a career, and gaps are filled with the best free engineer early in the season.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">Rookie and retiring engineers too strong</span>
+      <p class="d">Engineers retire later, and their made-up replacements are no longer stars, so the market stays realistic.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Engineer progress</span>
+      <p class="d">Engineers improve over time by age and team, and decline later in their careers.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Engineers’ birthdays</span>
+      <p class="d">All engineers age at the same point of the year, so changes happen together.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">An engineer’s name broke the screen</span>
+      <p class="d">A name with a character the game can’t draw no longer breaks his page.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Engineers start on one-season contracts</span>
+      <p class="d">Every engineer’s contract runs to the end of the first season, so the market is open from year one.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">AI engineer market</span>
+      <p class="d">AI teams keep or replace engineers sensibly and sign the best free ones first.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Your staff can be tempted away</span>
+      <p class="d">If one of your out-of-contract drivers or engineers signs elsewhere, he writes you a goodbye letter and it makes the news.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Mechanics’ pay</span>
+      <p class="d">Mechanics are paid according to how important their department is.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Mechanics’ pay rises</span>
+      <p class="d">Mechanics’ pay creeps up each year over a long career.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Editor re-rolled every team’s mechanics</span>
+      <p class="d">Saving settings in the editor no longer reshuffles every team’s mechanics.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Department morale matters</span>
+      <p class="d">Team motivation and happiness now affect how the car performs and how reliable it is.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Morale hits the right department</span>
+      <p class="d">A bad result only hurts the morale of the department responsible for it.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Points bonus lifts motivation</span>
+      <p class="d">Paying your mechanics a points bonus now also lifts that department’s motivation.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Engineer pressure from results</span>
+      <p class="d">Pressure on your engineers follows where your cars actually finish.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+  </ul>
+  <h3>Sponsors and suppliers</h3>
+  <ul>
+    <li class="feature"><span class="t">Real sponsors</span>
+      <p class="d">Real sponsor names and star ratings, with some big brands now paying as main sponsors.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Winning sponsors over</span>
+      <p class="d">Keeping contact with a sponsor builds a relationship over time and makes them happier with you.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Sponsor recruiting exploit</span>
+      <p class="d">A contact ending at the turn of the year could be finished for almost nothing. Fixed, and the slider stays locked while a contact runs.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Sponsor money by team level</span>
+      <p class="d">Sponsor income now scales properly with how strong your team is, so weak teams can’t earn like top teams.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Sponsor and supplier moods</span>
+      <p class="d">How happy a partner is with you follows your team’s standing more precisely.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Sponsor renewals paid twice</span>
+      <p class="d">Accepting a renewal offer no longer pays extra money or replaces the current deal.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Renewal offers in December</span>
+      <p class="d">Sponsors judge your season and send renewal offers at the end of the year, open until New Year.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Renewal offers forced a two-year deal</span>
+      <p class="d">A renewal can now be taken for one season.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">Partner moods lagged behind</span>
+      <p class="d">Sponsor and supplier moods update when ratings change over the winter, and offers keep their improved mood.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">Advertising space miscounted</span>
+      <p class="d">Every logo space on the car now counts towards a sponsor’s deal.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Supplier promises</span>
+      <p class="d">Promising points to a supplier works for every team, measured against what your team should achieve.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">A promise showed on every contract</span>
+      <p class="d">A promise made to one supplier no longer appears on everyone else’s contract.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Supplier deals pay by rating</span>
+      <p class="d">What fuel, materials and tyre suppliers pay depends on their rating, and longer deals pay more in total.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Suppliers can refuse a deal</span>
+      <p class="d">Like sponsors, a supplier may decline to work with you.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Confusing supplier contracts</span>
+      <p class="d">Contract text is rewritten in plain English, and engine deals describe the engine you’re getting.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">Engine contract showed no budget</span>
+      <p class="d">Engine contracts show their real budget again.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Two tyre suppliers</span>
+      <p class="d">Goodyear and Bridgestone change from year to year, AI teams choose between them, and deals pay money.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Engine supplier choices</span>
+      <p class="d">Each AI team picks its engine by its own priorities, suppliers can only supply so many teams, and loyalty only goes so far.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+  </ul>
+  <h3>Finance</h3>
+  <ul>
+    <li class="feature"><span class="t">Prize money</span>
+      <p class="d">Prize money is paid by finishing position at every race, plus an end-of-season payment for the top teams.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Free travel for top teams</span>
+      <p class="d">Last season’s leading teams travel to races free of charge.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Fairer loans</span>
+      <p class="d">Interest rates are kinder and finer-grained, long loans are possible, and borrowing to build is cheaper.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Credit early in the season</span>
+      <p class="d">Early in the year the bank looks at your sponsorship rather than your start-of-season deficit.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Facility running costs</span>
+      <p class="d">Factories and wind tunnels cost money to run each year.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Facility prices</span>
+      <p class="d">New wind tunnels and factories cost more to build.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Cheaper wind tunnel runs</span>
+      <p class="d">A wind tunnel run costs less than before.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Balance sheet missed prize money (original game)</span>
+      <p class="d">The last race and the end-of-season payment now appear in the balance sheet, with the end-of-season fund on its own line.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Merchandising rework</span>
+      <p class="d">Merchandise sales depend on fans, form, pricing, materials and home races, with bigger markets and pre-season and winter sales.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Driver fame counts career success</span>
+      <p class="d">A driver’s fame, which drives merchandise sales, reflects wins, poles and titles as well as talent.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Merchandising screen</span>
+      <p class="d">The bars on the merchandising screen show how profitable each product is.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Old merchandise prices in saved careers</span>
+      <p class="d">Saved careers pick up the corrected material costs.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+  </ul>
+  <h3>Newspaper and faxes</h3>
+  <ul>
+    <li class="feature"><span class="t">A newspaper that changes every week</span>
+      <p class="d">A new paper with stories chosen by importance: titles, your team, the race weekend, the driver market, pressure stories, previews, reviews and more.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">More stories on every page</span>
+      <p class="d">Several stories per page, with the most important one taking the headline.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Race weekend stories</span>
+      <p class="d">Wins, podiums, surprises, retirements and failures to qualify are reported with real gaps and reasons, plus pole and fastest lap.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Your team in the news</span>
+      <p class="d">Your signings, deals, buildings and loans make headlines.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Season pages</span>
+      <p class="d">Winter reports on engines and tyres, team profiles before the season, and reviews at the end.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Lots of new stories and wording</span>
+      <p class="d">Many new kinds of story, varied wording, and small print with extra detail under every story.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Signing stories quote salaries</span>
+      <p class="d">Signing stories mention the rumoured new salary.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Bigger, clearer columns</span>
+      <p class="d">Column headings are larger and easier to read.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Newspaper fixes</span>
+      <p class="d">Stories no longer repeat, positions use the proper tie-breaks, the right race is named, new arrivals aren’t judged too early, and form wording only goes to drivers on real form.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">Same stories in every career</span>
+      <p class="d">Each career now gets its own stories.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">Typos in the original paper</span>
+      <p class="d">All newspaper text is new, corrected wording.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">Small print and columns not showing</span>
+      <p class="d">All parts of the news page now appear as they should.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Race results fax</span>
+      <p class="d">After every race a fax lists qualifying, the race result and the retirements.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Results fax fixes</span>
+      <p class="d">Correct qualifying times, correct retirement laps and correct retirement reasons, with your technical failures kept as discreet as the AI’s.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+  </ul>
+  <h3>Standings and statistics</h3>
+  <ul>
+    <li class="feature"><span class="t">Count-back tie-breaks</span>
+      <p class="d">Ties on points are split by best results, as in the real championship.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Constructors’ table order</span>
+      <p class="d">Teams level on points are ordered consistently with the drivers’ table.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Tables before the first race</span>
+      <p class="d">Before anyone scores, the tables follow last season’s order.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Car numbers</span>
+      <p class="d">Car numbers follow last season’s championship order.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Suppliers in the history</span>
+      <p class="d">Each team’s engine and tyre supplier is recorded season by season.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">A phantom driver in the statistics</span>
+      <p class="d">A leftover driver no longer fills empty places in the season tables.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">Team rating fixes</span>
+      <p class="d">An empty car or a failure to qualify is no longer graded like a finish.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">Driver graph legend</span>
+      <p class="d">The legend now explains the marker correctly for drivers who didn’t start or qualify.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Real team principals</span>
+      <p class="d">All twelve real team principals are in the game.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+  </ul>
+</section>
+<section id="development">
+  <h2>Development <span class="n">24</span></h2>
+  <h3>Car design and parts</h3>
+  <ul>
+    <li class="feature"><span class="t">Part weightings</span>
+      <p class="d">How much each part counts towards your car’s air resistance, downforce and stability has been rebalanced, and the rear section now counts too.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Factory part quality</span>
+      <p class="d">The quality of a built part depends on your materials, the time allowed and your production engineer, not the design’s rating.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Idle design studio or factory (original game)</span>
+      <p class="d">A spare studio or factory now picks up queued work by itself.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Design experience from testing</span>
+      <p class="d">Testing earns your designs experience according to the laps driven.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Development and the Chief Designer</span>
+      <p class="d">A better Chief Designer speeds up development.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Design sliders</span>
+      <p class="d">Design sliders are easier to grab, no longer let go mid-drag, and respond more smoothly.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+  </ul>
+  <h3>Engines</h3>
+  <ul>
+    <li class="feature"><span class="t">Engine development every season</span>
+      <p class="d">Engines change each winter, with occasional shake-ups that pull the leaders back.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Engine horsepower follows performance</span>
+      <p class="d">The horsepower shown matches how fast an engine really is, including on the Choose Team screen.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Engine supplier ratings</span>
+      <p class="d">Each supplier’s rating can only move within a realistic range.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Engine prices</span>
+      <p class="d">Engine prices follow the supplier’s rating.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Repaired engines that never came back (original game)</span>
+      <p class="d">Engines sent for repair now always return.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">Petronas engine vanished</span>
+      <p class="d">Petronas and Ford ED can always be negotiated with as engine suppliers.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Fuel/air mixture</span>
+      <p class="d">The mixture changes engine performance, fuel use, wear and reliability, and favours top speed at the fastest tracks.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Test bench graphs</span>
+      <p class="d">The test bench graphs show how the engine now behaves.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Fuel supplier matters</span>
+      <p class="d">A weaker fuel supplier costs a little top speed.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+  </ul>
+  <h3>Regulations and AI development</h3>
+  <ul>
+    <li class="feature"><span class="t">Development budgets</span>
+      <p class="d">AI teams start with budgets that fit their size and are reset each year by championship position.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Diminishing returns</span>
+      <p class="d">AI development gains less the closer a car gets to the limit.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Bigger rule changes</span>
+      <p class="d">Part size rules can change more each season, and a good Chief Designer softens the blow.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Minimum weight rule</span>
+      <p class="d">The minimum weight can change from season to season.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Air intake protected</span>
+      <p class="d">Rule changes always leave enough room for sidepod and airbox intakes.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+  </ul>
+  <h3>Teams</h3>
+  <ul>
+    <li class="feature"><span class="t">Team rating</span>
+      <p class="d">Team ratings react to results compared with expectations, without drifting down over a career, and a single great season can’t inflate them too fast.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Team character</span>
+      <p class="d">Each team starts with car figures closer to its real 1997 form, and the weakest team starts at a fitting level.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">AI chassis reset each winter</span>
+      <p class="d">AI teams keep the chassis progress they made during the season.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">AI breakdowns follow the chassis</span>
+      <p class="d">An AI team’s reliability depends on how good its chassis is.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+  </ul>
+</section>
+<section id="race">
+  <h2>Race <span class="n">45</span></h2>
+  <h3>Race weekend</h3>
+  <ul>
+    <li class="feature"><span class="t">AI pace in practice</span>
+      <p class="d">AI cars run at race pace in practice, so practice times no longer flatter you.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">107% rule relief</span>
+      <p class="d">When too few cars make the cut, more of them are allowed to start.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Tyre compounds on screen</span>
+      <p class="d">Timing screens show every car’s current tyre compound.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Top speeds closer to 1997</span>
+      <p class="d">Cars reach more realistic top speeds on the straights.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Race speed slider</span>
+      <p class="d">The race speed slider is easier to use: click anywhere on the bar to move it, or drag it.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+  </ul>
+  <h3>Strategy and pit stops</h3>
+  <ul>
+    <li class="feature"><span class="t">AI race strategy</span>
+      <p class="d">AI teams plan their stops and tyres each weekend, varied by tyre supplier and checked against the track.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">AI stops for worn tyres</span>
+      <p class="d">An AI car with finished tyres makes an extra stop when there’s time.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">AI fuel at weather stops</span>
+      <p class="d">AI cars no longer lose fuel when they pit for rain or dry tyres.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">AI carried too much fuel</span>
+      <p class="d">The AI no longer stacks its safety margin at every stop.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Pit stop fuel</span>
+      <p class="d">The fuel you set for a stop fills the tank to that amount instead of adding to it.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Fuel weight</span>
+      <p class="d">Fuel load affects both acceleration and cornering.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Risk slider</span>
+      <p class="d">The race risk slider makes your car faster and riskier without burning extra fuel.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+  </ul>
+  <h3>Tyres</h3>
+  <ul>
+    <li class="bug"><span class="t">AI tyres never wore out</span>
+      <p class="d">AI tyres wear properly, so strategy matters for everyone.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Tyre suppliers feel different</span>
+      <p class="d">Each supplier has its own grip and durability, varying by compound and by year.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Tyre wear by track</span>
+      <p class="d">Some tracks are much harder on tyres than others.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Suspension and tyre life</span>
+      <p class="d">Harder suspension makes tyres last longer, with less gain the harder you go.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Intelligent drivers save tyres</span>
+      <p class="d">A clever driver makes his tyres last longer.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Tyre wear rounding</span>
+      <p class="d">Tyre wear is worked out the same way for you and the AI.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+  </ul>
+  <h3>Car setup</h3>
+  <ul>
+    <li class="feature"><span class="t">Wing setup you have to find</span>
+      <p class="d">Every track has an ideal wing level that shifts each season, and getting it wrong costs time.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Steep wings lost downforce</span>
+      <p class="d">Steeper wings now keep adding downforce, with the extra drag that comes with it.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Rain needs more wing</span>
+      <p class="d">Wet races need more downforce, and the AI adjusts its wings for the weather.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Brake balance</span>
+      <p class="d">Brake balance has a sweet spot, different in the wet, and getting it wrong costs braking and raises the crash risk.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Gear ratios matter</span>
+      <p class="d">Each track has ideal gearing, and the wrong ratios cost acceleration.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Front/rear balance</span>
+      <p class="d">An unbalanced car is harder to drive and more likely to crash.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Your engineers set the car</span>
+      <p class="d">Your aero chief suggests wings and gears and your chief mechanic the brakes, more accurately with better staff, more wind tunnels and good morale.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">AI team-mates run similar wings</span>
+      <p class="d">AI team-mates no longer run wildly different wing settings.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Wind tunnel readout</span>
+      <p class="d">The wind tunnel no longer shows more than the maximum downforce.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+  </ul>
+  <h3>On track</h3>
+  <ul>
+    <li class="bug"><span class="t">Drivers randomly losing pace</span>
+      <p class="d">Drivers no longer suddenly become very slow for no reason.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">Aggression had no effect on pace</span>
+      <p class="d">Aggressive drivers are quicker through the corners.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Livelier race starts</span>
+      <p class="d">Starts depend on the drivers, with a real fight into the first corners and three-wide moments.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Racing lanes at the start</span>
+      <p class="d">Cars use the full width of the track early in the race.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Dirty air and slipstream</span>
+      <p class="d">Following closely costs grip in corners but gives a tow on the straights.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Lapped cars held up the leaders</span>
+      <p class="d">Leaders can lap backmarkers without being held up.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">Passed cars slowed hard</span>
+      <p class="d">A car that has just been passed no longer brakes sharply.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="bug"><span class="t">AI slow after a good result</span>
+      <p class="d">AI cars that finished the previous race no longer start the next weekend with poor wings.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Wet-weather specialists</span>
+      <p class="d">Some drivers shine in the rain, others struggle.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Favourite tracks</span>
+      <p class="d">Each driver goes a little better or worse at certain circuits.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Unfair braking penalty</span>
+      <p class="d">Your cars no longer suffer a braking penalty the AI didn’t have.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+  </ul>
+  <h3>Reliability and incidents</h3>
+  <ul>
+    <li class="feature"><span class="t">Track-specific failures</span>
+      <p class="d">Some circuits are harder on cars, and failures can happen at any point of a race.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Failures and staff</span>
+      <p class="d">Mechanics, the chief mechanic and driver concentration play a part in reliability for every team.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Driving style wears the car</span>
+      <p class="d">A harder driving style means more wear and tear.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Character-based incidents</span>
+      <p class="d">A driver’s character, concentration and aggression shape how often he crashes.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Overtaking crashes</span>
+      <p class="d">Any driver can tangle while overtaking, more likely for the wilder characters.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Start crashes</span>
+      <p class="d">Unfocused drivers are more likely to crash at the start.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Real retirement reasons</span>
+      <p class="d">Retirements show their real cause, with crashes and technical failures told apart.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+  </ul>
+</section>
+<section id="across-the-game">
+  <h2>Across the game <span class="n">8</span></h2>
+  <h3>Sound, music and screens</h3>
+  <ul>
+    <li class="feature"><span class="t">Original music without a CD</span>
+      <p class="d">The original soundtrack plays from a file in the game folder, so no CD needs mounting, and you can still use your own music on a CD image.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Game needed a CD to start</span>
+      <p class="d">The game starts without a CD.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">CD music off at start-up</span>
+      <p class="d">CD music starts switched off; turn it on in Options.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Quieter sound effects</span>
+      <p class="d">Interface sounds are quieter and softer, especially the panel and door sounds.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="feature"><span class="t">Faster, smoother screen changes</span>
+      <p class="d">Screen transitions are quicker and smoother.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Sliders let go mid-drag</span>
+      <p class="d">Sliders are easier to grab and stay held until you let go.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+    <li class="feature"><span class="t">Jordan’s Irish flag</span>
+      <p class="d">Jordan shows the Irish flag on the Choose Team screen.</p>
+      <span class="meta"><span class="s feature">Feature</span></span></li>
+    <li class="bug"><span class="t">Translation leftovers</span>
+      <p class="d">Leftover German text now reads in English.</p>
+      <span class="meta"><span class="s bug">Bug fix</span></span></li>
+  </ul>
+</section>
+<footer>F1 Manager Professional 1997 is &copy; 1997 Software 2000. This is a fan-made mod; it changes the game exe and some data files and needs the original game.</footer>
+</div>
+</body></html>
