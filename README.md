@@ -11,8 +11,9 @@ I've also uploaded a HTML version of the change log. Simply click on it, downloa
 
 To run the game you will need dosbox-x over at https://dosbox-x.com/.
 You'll need to open it and do the following once you've downloaded the games folder to play the game.
+
 Download the mod here https://mega.nz/folder/jxJAAIaZ#qnxWqLx1S3wWf8J9udsqtQ.
-Assuming you have placed the folder onto your D drive and renamed it to F1.
+Assuming you have placed the folder onto your D drive at the top of it.
 
 mount D D:\F1       
 
