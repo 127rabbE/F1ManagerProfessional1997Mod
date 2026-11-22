@@ -9,7 +9,7 @@ The mod will also contain the original games manual however you should use the o
 
 I've also uploaded a HTML version of the change log. Simply click on it, download it and open it in your browser. It shows everything I've done with AI to the game.
 
-To run the game you will need dosbox-x over at https://dosbox-x.com/
+To run the game you will need dosbox-x over at https://dosbox-x.com/.
 You'll need to open it and do the following once you've downloaded the games folder to play the game.
 Assuming you have placed the folder onto your D drive and renamed it to F1.
 
